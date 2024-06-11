@@ -1,5 +1,5 @@
 ## FOOD WASTE
-The basic concept of this website is to collect the left over food from people and give it to the people who wants food 
+The basic concept of this website is to collect the left over food from people and give it to the people who are in need of food 
 <h2>Tools and Technologies</h2> 
 <ul>
  <li>Frontend : HTML, CSS,  JavaScript</li>
