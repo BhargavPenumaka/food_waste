@@ -19,5 +19,5 @@ The basic concept of this website is to collect the left over food from people a
        <li>Import demo.sql file(inside database folder)</li>
        <li> Run the script http://localhost/folderName </li> </ol>
 
-   [view website](https://www.example.com)
+   
     
