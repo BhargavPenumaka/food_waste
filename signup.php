@@ -1,3 +1,47 @@
+<?php
+include 'connection.php';
+// $connection=mysqli_connect("localhost","root","");
+// $db=mysqli_select_db($connection,'demo');
+if(isset($_POST['sign']))
+{
+
+    $username=$_POST['name'];
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $gender=$_POST['gender'];
+
+    $pass=password_hash($password,PASSWORD_DEFAULT);
+    $sql="select * from login where email='$email'" ;
+    $result= mysqli_query($connection, $sql);
+    $num=mysqli_num_rows($result);
+    if($num==1){
+
+        echo "<h1><center>Account already exists</center></h1>";
+    }
+    else{
+    
+    $query="insert into login(name,email,password,gender) values('$username','$email','$pass','$gender')";
+    $query_run= mysqli_query($connection, $query);
+    if($query_run)
+    {
+      
+       
+        header("location:signin.php");
+       
+    }
+    else{
+        echo '<script type="text/javascript">alert("data not saved")</script>';
+        
+    }
+}
+
+
+   
+}
+?>
+
+
+
 
 <DOCTYPE html>
 <html lang="en">
@@ -89,47 +133,3 @@
        
 </body>
 </html>
-<?php
-include 'connection.php';
-// $connection=mysqli_connect("localhost","root","");
-// $db=mysqli_select_db($connection,'demo');
-if(isset($_POST['sign']))
-{
-
-    $username=$_POST['name'];
-    $email=$_POST['email'];
-    $password=$_POST['password'];
-    $gender=$_POST['gender'];
-
-    $pass=password_hash($password,PASSWORD_DEFAULT);
-    $sql="select * from login where email='$email'" ;
-    $result= mysqli_query($connection, $sql);
-    $num=mysqli_num_rows($result);
-    if($num==1){
-
-        echo "<h1><center>Account already exists</center></h1>";
-    }
-    else{
-    
-    $query="insert into login(name,email,password,gender) values('$username','$email','$pass','$gender')";
-    $query_run= mysqli_query($connection, $query);
-    if($query_run)
-    {
-      
-       
-        header("location:signin.php");
-       
-    }
-    else{
-        echo '<script type="text/javascript">alert("data not saved")</script>';
-        
-    }
-}
-
-
-   
-}
-?>
-
-
-
